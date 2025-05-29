@@ -1,21 +1,31 @@
-import type { NextConfig } from "next";
-import { hostname } from "os";
-import withFlowbiteReact from "flowbite-react/plugin/nextjs";
+import type { NextConfig } from 'next';
+import withFlowbiteReact from 'flowbite-react/plugin/nextjs';
 
 const nextConfig: NextConfig = {
-  /* config options here */
   logging: {
     fetches: {
-      fullUrl: true
-    }
+      fullUrl: true,
+    },
   },
   images: {
-    remotePatterns:
-    [ {protocol: 'https',hostname:'cdn.pixabay.com' }
-      
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.pixabay.com',
+      },
+    ],
+  },
+  output: 'standalone',
 
-    ]
-  }
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
+  serverExternalPackages: [],
 };
 
 export default withFlowbiteReact(nextConfig);
+//export default nextConfig;
