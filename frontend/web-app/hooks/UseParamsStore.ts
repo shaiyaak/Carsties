@@ -8,6 +8,8 @@ type  State = {
     searchValue:string
     orderBy:string
     filterBy:string
+    seller?:string
+    winner?:string
 }
 type Actions= {
     setParams:(params:Partial<State>)=>void
@@ -21,7 +23,9 @@ const initialState:State = {
     searchTerm:'',
     searchValue:'',
     orderBy:'make',
-    filterBy:'live'
+    filterBy:'live',
+    seller: undefined,
+    winner: undefined
 }
 export const UseParamsStore = create<State&Actions>()((set)=>({
     ...initialState,

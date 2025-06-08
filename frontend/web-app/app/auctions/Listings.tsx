@@ -17,7 +17,9 @@ const params = UseParamsStore(useShallow(state=>({
   pageSize:state.pageSize,
   searchTerm:state.searchTerm,
   orderBy:state.orderBy,
-  filterBy:state.filterBy
+  filterBy:state.filterBy,
+  seller:state.seller,
+  winner:state.winner
 })))
 const setParams = UseParamsStore(state=>state.setParams)
 const url = qs.stringifyUrl({url:'',query:params})

@@ -27,5 +27,11 @@ const nextConfig: NextConfig = {
   serverExternalPackages: [],
 };
 
+module.exports = {
+  images: {
+    domains: ['images.unsplash.com','cdn.pixabay.com'],
+  },
+};
+
 export default withFlowbiteReact(nextConfig);
 //export default nextConfig;
