@@ -1,5 +1,6 @@
 using AuctionService.Consumers;
 using AuctionService.Data;
+using AuctionService.Services;
 using AutoMapper;
 using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -16,7 +17,7 @@ builder.Services.AddDbContext<AuctionDbContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddAutoMapper((typeof(Program).Assembly));
 
 builder.Services.AddMassTransit(x=>
 {
@@ -47,6 +48,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
     options.TokenValidationParameters.NameClaimType = "username";
 });
 
+builder.Services.AddGrpc();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -61,11 +64,13 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-try 
+app.MapGrpcService<GrpcAuctionService>();
+
+try
 {
     DbInitializer.InitDb(app);
 }
-catch(Exception e)
+catch (Exception e)
 {
     Console.WriteLine(e);
 }
