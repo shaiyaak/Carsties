@@ -1,26 +1,18 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
-EXPOSE 80
 
-COPY Carsties.sln Carsties.sln
-COPY src/AuctionService/AuctionService.csproj src/AuctionService/AuctionService.csproj
-COPY src/SearchService/SearchService.csproj src/SearchService/SearchService.csproj
-COPY src/GatewayService/GatewayService.csproj src/GatewayService/GatewayService.csproj
-COPY src/BiddingService/BiddingService.csproj src/BiddingService/BiddingService.csproj
-COPY src/Contracts/Contracts.csproj src/Contracts/Contracts.csproj
-COPY src/IdentityService/IdentityService.csproj src/IdentityService/IdentityService.csproj
+COPY Carsties.sln ./
+COPY src/BiddingService/BiddingService.csproj ./src/BiddingService/
+COPY src/Contracts/Contracts.csproj ./src/Contracts/
 
-#restore package deps
-RUN dotnet restore Carsties.sln
+RUN dotnet restore ./src/BiddingService/BiddingService.csproj
 
-#copy the app folders
-COPY src/BiddingService src/BiddingService
-COPY src/Contracts src/Contracts
-WORKDIR /app/src/BiddingService
-RUN dotnet publish -c Release -o /app/src/out
+COPY . . 
+RUN dotnet publish ./src/BiddingService/BiddingService.csproj -c Release -o /app/publish
 
-#build runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime 
+# Runtime Stage
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
-COPY --from=build /app/src/out .
-ENTRYPOINT [ "dotnet","BiddingService.dll" ]
+EXPOSE 80
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "BiddingService.dll"]

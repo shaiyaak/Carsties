@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayService", "src\Gatew
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BiddingService", "src\BiddingService\BiddingService.csproj", "{3E5ADB50-2830-4820-AD2A-5AECA33536BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotificationService", "src\NotificationService\NotificationService.csproj", "{560F657B-C270-4B03-A931-19066B847D7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -102,6 +104,18 @@ Global
 		{3E5ADB50-2830-4820-AD2A-5AECA33536BC}.Release|x64.Build.0 = Release|Any CPU
 		{3E5ADB50-2830-4820-AD2A-5AECA33536BC}.Release|x86.ActiveCfg = Release|Any CPU
 		{3E5ADB50-2830-4820-AD2A-5AECA33536BC}.Release|x86.Build.0 = Release|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Debug|x64.Build.0 = Debug|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Debug|x86.Build.0 = Debug|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Release|x64.ActiveCfg = Release|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Release|x64.Build.0 = Release|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Release|x86.ActiveCfg = Release|Any CPU
+		{560F657B-C270-4B03-A931-19066B847D7F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -113,5 +127,6 @@ Global
 		{176F231C-F963-47EC-9DA3-7B576A950C81} = {3905FD41-7835-4637-BAF1-29AC1B1D97FA}
 		{07AB234F-DA4F-415B-86DB-86E0273E0EF5} = {3905FD41-7835-4637-BAF1-29AC1B1D97FA}
 		{3E5ADB50-2830-4820-AD2A-5AECA33536BC} = {3905FD41-7835-4637-BAF1-29AC1B1D97FA}
+		{560F657B-C270-4B03-A931-19066B847D7F} = {3905FD41-7835-4637-BAF1-29AC1B1D97FA}
 	EndGlobalSection
 EndGlobal
