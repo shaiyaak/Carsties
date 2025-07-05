@@ -1,15 +1,15 @@
 using Contracts;
 using MassTransit;
 using Microsoft.AspNetCore.SignalR;
-using NoticationService.Hubs;
+using NotificationService.Hubs;
 
-namespace NoticationService.Consumers;
+namespace NotificationService.Consumers;
 
 public class AuctionFinishedConsumer : IConsumer<AuctionFinished>
 {
-    private readonly IHubContext<NoticationHub> hubContext;
+    private readonly IHubContext<NotificationHub> hubContext;
 
-    public AuctionFinishedConsumer(IHubContext<NoticationHub> hubContext)
+    public AuctionFinishedConsumer(IHubContext<NotificationHub> hubContext)
     {
         this.hubContext = hubContext;
     }

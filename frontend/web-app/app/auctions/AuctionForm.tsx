@@ -2,7 +2,7 @@
 import { Button, Spinner } from 'flowbite-react';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect } from 'react'
-import { FieldValues, Form, useForm } from 'react-hook-form'
+import { FieldValues,  useForm } from 'react-hook-form'
 import Input from "../components/Input"
 import DateInput from '../components/DateInput';
 import { createAuction, updateAuction } from '../actions/auctionActions';
@@ -35,7 +35,7 @@ export default function AuctionsForm({auction}:Props) {
             let res;
             if (pathname === '/auctions/create')
             {
-                const res = await createAuction(data);
+                res = await createAuction(data);
                 id = res.id;
             } else {
                 if (auction)
@@ -46,7 +46,10 @@ export default function AuctionsForm({auction}:Props) {
             }
             if (res.error) throw res.error
             router.push(`/auctions/details/${id}`)
-        } catch (error:any) {
+
+        }
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any 
+        catch (error:any) {
             toast.error(error.status+' '+error.message)
         }
     }

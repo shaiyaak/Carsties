@@ -30,6 +30,7 @@ export default function BidList({user,auction}:Props) {
 
     useEffect(()=>{
         getBidsForAuction(auction.id)
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
             .then((res:any)=>{
                 if(res.error)
                 {

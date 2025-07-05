@@ -1,6 +1,5 @@
 import Heading from '@/app/components/Heading'
 import React from 'react'
-import AuctionsForm from '../AuctionForm'
 import AuctionForm from '../AuctionForm'
 
 export default function Create() {

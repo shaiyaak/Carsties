@@ -1,5 +1,5 @@
 import { HelperText, Label, TextInput } from 'flowbite-react'
-import React from 'react'
+
 import { useController, UseControllerProps } from 'react-hook-form'
 type Props = {
     label:string
@@ -7,7 +7,7 @@ type Props = {
     showLabel?:boolean
 } & UseControllerProps
 
-export default function input(props:Props) {
+export default function Input(props:Props) {
     const {field,fieldState} = useController({...props})
   return (
     <div className='mb-3 block'>
