@@ -50,7 +50,7 @@ services:
       - ASPNETCORE_URLS=http://+:80
       - ASPNETCORE_URLS=http://+:7777
       - RabbitMQ__Host=rabbitmq
-      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=postgres;Password=postgrespw;Database=auctions
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Username=postgres;Password=postgrespwd;Database=auctions
       - IdentityServiceUrl=http://identity-svc
       - Kestrel__Endpoints__Grpc__Protocols=Http2
       - Kestrel__Endpoints__Grpc__Url=http://+:7777
@@ -116,9 +116,9 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
       - RabbitMQ__Host=rabbitmq
-      - ConnectionStrings__BidDbConnection=mongodb://root:mongopw@mongodb
-      - IdentityServiceUrl=http://identity-svc
-      - GrpcAuction=http://auction-svc:7777
+      - ConnectionStrings__BidDbConnection=mongodb://root:mongopwd@mongo-clusterip
+      - IdentityServiceUrl=http://identity-clusterip
+      - GrpcAuction=http://auction-clusterip:7777
     ports:
       - 7003:80
     depends_on:

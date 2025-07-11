@@ -35,6 +35,7 @@ function setPageNumber(pageNumber:number){
 
   useEffect(()=>{
     getData(url).then(data=>{
+      console.log(url)
       setData(data)
       setLoading(false)
     })
@@ -49,7 +50,7 @@ function setPageNumber(pageNumber:number){
       ):(
         <>
         <div className='grid grid-cols-4 gap-6'>
-          {data.auctions.map(auction=>(
+          {data && data.auctions.map(auction=>(
               <AuctionCard auction={auction} key={auction.id}/>
           ))}
       </div>

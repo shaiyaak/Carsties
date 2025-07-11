@@ -8,6 +8,7 @@ async function get(url: string) {
         headers: await getHeaders()
     };
     const response = await fetch(baseUrl + url, requestOptions);
+    console.log(baseUrl + url)
     return handleResponse(response);
 }
 
