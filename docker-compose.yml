@@ -41,7 +41,7 @@ services:
       - "15672:15672"
       - "5672:5672"
   auction-svc:
-    image: trycatchlearn/auction-svc:latest
+    image: shaiyaak/auction-svc:latest
     build: 
       context: .
       dockerfile: src/AuctionService/Dockerfile
