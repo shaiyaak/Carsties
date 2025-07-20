@@ -15,6 +15,22 @@ spec:
       - name: bid-svc
         image: trycatchlearn/bid-svc
         imagePullPolicy: Never
+        env:
+          - name: ConnectionStrings__BidDbConnection
+            valueFrom:
+              secretKeyRef:
+                name: bid-secret
+                key: connString
+          - name: RabbitMQ__Username
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: username
+          - name: RabbitMQ__Password
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: password                                           
         envFrom:
          - configMapRef:
              name: bid-svc-config
@@ -32,5 +48,3 @@ spec:
   ports:
   - port: 80
     targetPort: 80
-
-

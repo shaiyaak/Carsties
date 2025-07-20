@@ -15,6 +15,12 @@ spec:
       - name: webapp-svc
         image: trycatchlearn/web-app
         imagePullPolicy: Never
+        env:
+          - name: AUTH_SECRET
+            valueFrom:
+              secretKeyRef:
+                name: webapp-secret
+                key: authSecret                     
         envFrom:
          - configMapRef:
              name: webapp-svc-config
@@ -32,5 +38,3 @@ spec:
   ports:
   - port: 3000
     targetPort: 3000
-
-

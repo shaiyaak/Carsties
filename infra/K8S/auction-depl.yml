@@ -15,6 +15,22 @@ spec:
       - name: auction-svc
         image: trycatchlearn/auction-svc
         imagePullPolicy: Never
+        env:
+          - name: ConnectionStrings__DefaultConnection
+            valueFrom:
+              secretKeyRef:
+                name: auction-secret
+                key: connString                                            
+          - name: RabbitMQ__Username
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: username
+          - name: RabbitMQ__Password
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: password          
         envFrom:
          - configMapRef:
              name: auction-svc-config
@@ -39,4 +55,3 @@ spec:
   - port: 7777
     targetPort: 7777
     name: grpc
-

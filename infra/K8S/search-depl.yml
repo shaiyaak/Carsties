@@ -15,6 +15,22 @@ spec:
       - name: search-svc
         image: trycatchlearn/search-svc
         imagePullPolicy: Never
+        env:
+          - name: ConnectionStrings__MongoDbConnection
+            valueFrom:
+              secretKeyRef:
+                name: search-secret
+                key: connString
+          - name: RabbitMQ__Username
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: username
+          - name: RabbitMQ__Password
+            valueFrom:
+              secretKeyRef:
+                name: rabbit-secret
+                key: password                                              
         envFrom:
          - configMapRef:
              name: search-svc-config
@@ -32,5 +48,3 @@ spec:
   ports:
   - port: 80
     targetPort: 80
-
-
