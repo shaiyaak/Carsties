@@ -65,7 +65,7 @@ services:
       rabbitmq:
         condition: service_started
   search-svc:
-    image: trycatchlearn/search-svc:latest
+    image: shaiyaak/search-svc:latest
     build: 
       context: .
       dockerfile: src/SearchService/Dockerfile
@@ -83,7 +83,7 @@ services:
       mongodb:
         condition: service_healthy
   identity-svc:
-    image: trycatchlearn/identity-svc:latest
+    image: shaiyaak/identity-svc:latest
     build: 
       context: .
       dockerfile: src/IdentityService/Dockerfile
@@ -98,7 +98,7 @@ services:
       postgres:
         condition: service_healthy
   gateway-svc:
-    image: trycatchlearn/gateway-svc:latest
+    image: shaiyaak/gateway-svc:latest
     build: 
       context: .
       dockerfile: src/GatewayService/Dockerfile
@@ -108,7 +108,7 @@ services:
       - VIRTUAL_HOST=api.carsties.local
       - ClientApp=https://app.carsties.local
   bid-svc:
-    image: trycatchlearn/bid-svc:latest
+    image: shaiyaak/bid-svc:latest
     build: 
       context: .
       dockerfile: src/BiddingService/Dockerfile
@@ -127,7 +127,7 @@ services:
       mongodb:
         condition: service_healthy
   notify-svc:
-    image: trycatchlearn/notify-svc:latest
+    image: shaiyaak/notify-svc:latest
     build: 
       context: .
       dockerfile: src/NotificationService/Dockerfile
@@ -140,7 +140,7 @@ services:
     depends_on:
       - rabbitmq
   web-app:
-    image: trycatchlearn/web-app:latest
+    image: shaiyaak/web-app:latest
     build: 
       context: .
       dockerfile: frontend/web-app/Dockerfile

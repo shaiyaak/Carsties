@@ -13,6 +13,18 @@ jobs:
         service: 
           - name: 'shaiyaak/auction-svc'
             path: 'src/AuctionService'
+          - name: 'shaiyaak/search-svc'
+            path: 'src/SearchService'
+          - name: 'shaiyaak/bid-svc'
+            path: 'src/BidService'
+          - name: 'shaiyaak/identity-svc'
+            path: 'src/IdentityService'
+          - name: 'shaiyaak/gateway-svc'
+            path: 'src/GatewayService'
+          - name: 'shaiyaak/notify-svc'
+            path: 'src/NotificationService'
+          - name: 'shaiyaak/webapp'
+            path: 'frontend/web-app'
 
     steps:
     - name: Checkout code
