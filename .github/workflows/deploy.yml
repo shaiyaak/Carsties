@@ -16,7 +16,7 @@ jobs:
           - name: 'shaiyaak/search-svc'
             path: 'src/SearchService'
           - name: 'shaiyaak/bid-svc'
-            path: 'src/BidService'
+            path: 'src/BiddingService'
           - name: 'shaiyaak/identity-svc'
             path: 'src/IdentityService'
           - name: 'shaiyaak/gateway-svc'
