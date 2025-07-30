@@ -13,8 +13,7 @@ spec:
     spec:
       containers:
       - name: search-svc
-        image: trycatchlearn/search-svc
-        imagePullPolicy: Never
+        image: shaiyaak/search-svc:latest
         env:
           - name: ConnectionStrings__MongoDbConnection
             valueFrom:

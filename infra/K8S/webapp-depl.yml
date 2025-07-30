@@ -13,8 +13,7 @@ spec:
     spec:
       containers:
       - name: webapp-svc
-        image: trycatchlearn/web-app
-        imagePullPolicy: Never
+        image: shaiyaak/web-app:latest
         env:
           - name: AUTH_SECRET
             valueFrom:

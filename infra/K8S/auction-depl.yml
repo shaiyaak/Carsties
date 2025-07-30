@@ -13,8 +13,7 @@ spec:
     spec:
       containers:
       - name: auction-svc
-        image: trycatchlearn/auction-svc
-        imagePullPolicy: Never
+        image: shaiyaak/auction-svc:latest
         env:
           - name: ConnectionStrings__DefaultConnection
             valueFrom:

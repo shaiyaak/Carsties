@@ -13,8 +13,7 @@ spec:
     spec:
       containers:
       - name: identity-svc
-        image: trycatchlearn/identity-svc
-        imagePullPolicy: Never
+        image: shaiyaak/identity-svc:latest
         env:
           - name: ConnectionStrings__DefaultConnection
             valueFrom:
